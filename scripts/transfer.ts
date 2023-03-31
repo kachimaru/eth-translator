@@ -11,13 +11,12 @@ const main = async () => {
   console.log("signingAddress:"+address);
   const nonce =await signer.getTransactionCount();
 
-  var gasPrice = await provider.getGasPrice();
-  console.log(`Gas price: ${ethers.utils.formatUnits(gasPrice, 'gwei')} gwei`);
- // gasPrice=gasPrice.add(1);
-  console.log(`Gas price: ${ethers.utils.formatUnits(gasPrice, 'gwei')} gwei`);
+  var gasPrice =ethers.BigNumber.from(30);
+  console.log(`Gas price: ${gasPrice}`);
   const balance = await signer.getBalance();
   console.log(`Balance: ${ethers.utils.formatEther(balance)}`);
-  const gasLimit = 3000000;
+  const gasLimit = 21000;
+  console.log(`Gas limit: ${gasLimit}`);
 
 
   const value=balance.sub(gasPrice.mul(gasLimit))
