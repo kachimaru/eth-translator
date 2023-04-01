@@ -3,15 +3,14 @@ import { KmsSigner } from './common';
 
 const main = async () => {
 
-  const to ="0x45f2772c4a7783f902f47dfcd76de2c99f82512a";
+  const to ="0x19ff500d70f1b73ce4356ff754435239ee6ddf4a";
 
-  const provider = ethers.getDefaultProvider();
   const signer = KmsSigner();
   const address = await signer.getAddress();
   console.log("signingAddress:"+address);
   const nonce =await signer.getTransactionCount();
-
-  var gasPrice =ethers.BigNumber.from(30);
+  console.log("nonce:"+nonce);
+  var gasPrice =ethers.BigNumber.from(30000000000);
   console.log(`Gas price: ${gasPrice}`);
   const balance = await signer.getBalance();
   console.log(`Balance: ${ethers.utils.formatEther(balance)}`);
